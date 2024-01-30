@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck1fnu5p67hrb"]
+
+[ext_resource type="Script" path="res://close_popup.gd" id="1_fstrd"]
+
+[node name="ClosePopup" type="Window"]
+initial_position = 1
+size = Vector2i(300, 150)
+script = ExtResource("1_fstrd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.0901961, 0.368627, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -45.0
+offset_right = 82.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Do you really want to 
+close the program?"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = -55.0
+offset_right = 175.0
+offset_bottom = -23.0
+grow_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="ColorRect/CloseButton" to="." method="_on_close_button_pressed"]
